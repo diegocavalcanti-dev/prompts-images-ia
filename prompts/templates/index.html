@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Prompts</title>
+</head>
+<body>
+    <h1>Gerador de Prompts</h1>
+    <button onclick="generatePrompt()">Gerar Prompt</button>
+    <p id="prompt"></p>
+
+    <script>
+        function generatePrompt() {
+            fetch("/api/generate/")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("prompt").innerText = data.prompt;
+                });
+        }
+    </script>
+</body>
+</html>
